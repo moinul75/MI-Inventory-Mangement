@@ -1,0 +1,40 @@
+{% extends 'include/base.html' %}
+
+{% block title  %} Product Delete {% endblock title  %}
+
+{% block context %}
+
+
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-6 offset-md-3">
+            <div class="border bg-white p-3">
+                <h3>Delete Product</h3>
+                <hr>
+                
+                <div class="aleart alert-danger p-2 mb-2">
+                    <h4>Are you sure want to delete the product? </h4>
+                   
+                </div>
+                <form method='POST'>
+                    {% csrf_token %}
+                    {{form}}
+
+                    <a class='btn btn-secondary' href="{% url 'dashboard-product' %}">Cencel</a>
+                    <input type="submit"class='btn btn-danger' value='Delete'>
+
+
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock context %}

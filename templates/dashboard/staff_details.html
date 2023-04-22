@@ -1,0 +1,79 @@
+{% extends 'include/base.html' %}
+{% load static %}
+{% block title %} Staff Detail  {% endblock %}
+
+{% block context %}
+{% include 'include/topbar.html' %}
+
+
+
+ <!--Table-->
+ <div class="container">
+    <div class="row my-4">
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    Staff 
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <span class="h4"> Staff Information</span> 
+                            <hr>
+                            <table class="table bg-white table-borderless">
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">Name</th>
+                                        <td>{{staff_id.username}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Email</th>
+                                        <td>{{staff_id.email}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Phone</th>
+                                        <td>{{staff_id.profile.phone}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Address</th>
+                                        <td>{{staff_id.profile.address}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <div class="col-md-4">
+                            {% if staff_id.profile.image %}
+                            <img class="img-thumbnail" src="{{staff_id.profile.image.url}}" alt="">
+                            {% else %}
+                            <img class="img-thumbnail" src="{% static 'avatar.jpg' %}" alt="">
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!--End Table-->
+
+
+
+
+
+
+
+{% endblock context %}
+
+
+
+
+

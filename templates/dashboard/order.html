@@ -1,0 +1,50 @@
+{% extends 'include/base.html' %}
+{% block title %}Order{% endblock%}
+{% load static %}
+{% block context %}
+{% include 'include/topbar.html' %}
+ <!--Table-->
+ <div class="container">
+    <div class="row my-4">
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-8">
+           
+            <table class="table bg-white">
+                <thead class="bg-info">
+                    <tr class="text-white">
+                        <th scope="col">#</th>
+                        <th scope="col">Product</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Order by</th>
+                        <th scope="col">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in order %}
+                    <tr>
+                        <th scope="row">{{i.id}}</th>
+                        <td><b>{{i.product| truncatechars:40}}</b></td>
+                        <td><b>{{i.product.category}}</b></td>
+                        <td><b>{{i.order_quantity}}</b></td>
+                        <td>
+                           <h6> <b>{{i.staff.username}}</b></h6>
+                        </td>
+                        <td><b>{{i.order_date}}</b></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+           
+
+        </div>
+    </div>
+
+</div>
+
+
+
+<!--End Table-->
+{% endblock context %}
